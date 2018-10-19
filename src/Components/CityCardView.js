@@ -80,7 +80,13 @@ class CityCardView extends React.Component {
     } = styles;
     return (
       <Card>
-      <TouchableOpacity onPress={() => this.navigation.navigate('DetailsPage', { data: this.city })} >
+      <TouchableOpacity onPress={() => this.navigation.navigate('DetailsPage', {
+        data: this.city,
+        currentLat: this.state.currentLat,
+        currentLong: this.state.currentLong,
+        cityLat: this.state.lat,
+        cityLong: this.state.long
+       })} >
         <CardSection>
           <View style={upperSectionStyle} >
                 <BackgroundImage
@@ -117,7 +123,7 @@ class CityCardView extends React.Component {
           <Text style={styles.textStyle}> </Text>
           <View style={{ flexDirection:'row'}}>
             <Text style={styles.textStyle}> </Text>
-            <Image source={require('./common/arrow-point-to-right.png')} style={{height:16, width:16}}/>
+            <Image source={require('./common/images/arrow-point-to-right.png')} style={{height:16, width:16}}/>
           </View>
         </View>
       );
@@ -129,7 +135,7 @@ class CityCardView extends React.Component {
           <Text style={styles.textStyle}> {this.state.temperature}°c {this.state.weatherCondition} </Text>
           <View style={{ flexDirection:'row'}}>
             {this.renderDistanceDetails()}
-            <Image source={require('./common/arrow-point-to-right.png')} style={{height:16, width:16}}/>
+            <Image source={require('./common/images/arrow-point-to-right.png')} style={{height:16, width:16}}/>
           </View>
         </View>
       );

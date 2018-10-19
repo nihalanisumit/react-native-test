@@ -1,40 +1,73 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, Image, View } from 'react-native';
 
-const Button = ({ codePress, children }) => {
+const Button = (props) => {
   const { buttonStyle, textStyle } = styles;
 
   return (
-    <TouchableOpacity
-    onPress={codePress}
-    style={buttonStyle}
-    >
-      <Text style={textStyle}>
-        {children}
-      </Text>
-    </TouchableOpacity>
+    <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+
+         {getIcon(props.buttonText)}
+
+         <View style={styles.SeparatorLine} />
+
+         <Text style={styles.TextStyle}> {props.buttonText} </Text>
+
+       </TouchableOpacity>
   );
 };
 
+const getIcon = (text) => {
+  if (text === 'Directions') {
+    return(
+      <Image
+       style={styles.ImageIconStyle}
+       source={ require('./images/direction.png') }
+      />
+    );
+  }
+  else{
+    return(
+      <Image
+       style={styles.ImageIconStyle}
+       source={ require('./images/taxi.png') }
+      />
+  );
+  }
+
+}
+
 const styles = {
   buttonStyle: {
-    flex: 1,
-    alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#007aff',
-    marginLeft: 5,
-    marginRight: 5
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#f4511e',
+    borderWidth: 0.5,
+    borderColor: '#fff',
+    height: 40,
+    borderRadius: 5 ,
+    margin: 5,
   },
-  textStyle: {
-    alignSelf: 'center',
-    color: '#007aff',
-    fontSize: 16,
-    fontWeight: '600',
-    paddingTop: 10,
-    paddingBottom: 10
-  }
+  ImageIconStyle: {
+   padding: 10,
+   margin: 5,
+   height: 25,
+   width: 25,
+   resizeMode : 'stretch',
+
+},
+TextStyle : {
+  color: '#fff',
+  marginBottom: 4,
+  fontSize: 14,
+  paddingLeft: 10,
+  paddingRight: 10
+},
+SeparatorLine :{
+  backgroundColor : '#fff',
+  width: 1,
+  height: 40
+}
 };
 
 export { Button };

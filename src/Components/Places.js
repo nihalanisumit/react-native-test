@@ -1,46 +1,96 @@
 import React from 'react';
-import { View,Text,Image,Button } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
+import { Card, CardSection, Button } from './common';
 
 const Places = (props) => {
-  console.log('inside places, data is ' + JSON.stringify(props.city) );
+  const { placeDetails, currentLatitude, currentLongitude } = props;
+  const { lat, lon } = placeDetails.coordinates;
+  console.log('inside places, data is ' + JSON.stringify(props.Places) );
   return (
-    <View >
-      <View style={styles.firstLineStyle}>
-        <Text> {props.city.places[0].name} </Text>
-        <Text>1.2 km </Text>
-      </View>
-      <View>
-        <Text> long textttt</Text>
-      </View>
-      <View style={styles.buttonContainerStyle}>
-        <Button title="Direction" color="#841584"/>
-        <Button title="Book Uber" color="#841584"/>
-      </View>
-      <View style={styles.imageContainerStyle}>
-        <Image style={styles.imageStyle} source={{uri: 'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'}} />
-        <Image style={styles.imageStyle} source={{uri: 'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'}} />
-        <Image style={styles.imageStyle} source={{uri: 'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'}} />
-      </View>
-    </View>
+      <Card>
+        <View >
+          <View style={styles.firstLineStyle}>
+            <Text style={styles.placeTitleTextStyle}> {placeDetails.name} </Text>
+            <Text style={styles.distanceTextStyle}>{calculateDistance(currentLatitude, currentLongitude, lat, lon)} Km </Text>
+          </View>
+          <ScrollView style={styles.descriptionContainerStyle} showsVerticalScrollIndicator>
+            <Text style={styles.descriptionTextStyle}>
+              {placeDetails.description}
+            </Text>
+          </ScrollView>
+        </View>
+        <View style={styles.buttonContainerStyle}>
+          <Button buttonText='Directions' iconURL='./arrow-point-to-right.png' />
+          <Button buttonText='Book Uber' iconURL='./arrow-point-to-right.png' />
+        </View>
+        <View style={styles.imageContainerStyle}>
+          { renderImages(placeDetails.images) }
+        </View>
+      </Card>
   );
+};
+
+const renderImages = (images) => {
+  return images.map(image =>
+    <Image style={styles.imageStyle} source={{ uri: image.url }} key={images.url} />
+  );
+}
+
+const calculateDistance = (lat1, lon1, lat2, lon2) => {
+  console.log('current lat = ' + lat1 + ' current long =' + lon1 + 'city lat = ' + lat2 + ' city long =' + lon2);
+  const radlat1 = Math.PI * lat1/180
+  const radlat2 = Math.PI * lat2/180
+  const theta = lon1-lon2
+  const radtheta = Math.PI * (theta/180)
+  let dist = (Math.sin(radlat1) * Math.sin(radlat2)) + (Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta));
+  if (dist > 1){
+    dist=1;
+  }
+  dist = Math.acos(dist)
+  dist = dist * 180/Math.PI
+  dist = dist * 60 * 1.1515
+  dist = dist * 1.609344
+  return Math.round(dist)
 };
 
 const styles = {
   firstLineStyle: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    padding: 10
+  },
+  placeTitleTextStyle:{
+    fontSize: 20
+  },
+  distanceTextStyle:{
+    alignSelf: 'flex-end',
+    fontSize: 16
+  },
+  descriptionContainerStyle:{
+    height: '40%',
+    padding: 10
+  },
+  descriptionTextStyle:{
+    fontStyle: 'italic',
+    textAlign: 'justify'
   },
   buttonContainerStyle: {
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-between',
+    paddingTop: 20,
+    paddingLeft: 15,
+    paddingRight: 15
   },
   imageContainerStyle:{
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-between',
+    paddingTop: 20,
+    paddingLeft: 15,
+    paddingRight: 15
   },
   imageStyle: {
-    height: 50,
-    width: 50
+    height: 70,
+    width: 90
   }
 };
 

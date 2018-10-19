@@ -4,62 +4,81 @@ const Data = [
             'name':'Jaipur',
             'url' : 'https://media.cntraveller.in/wp-content/uploads/2014/02/Jal-Mahal-Jaipur-123rf-2-866x487.jpg',
             'description' : 'Jaipur is the capital of India’s Rajasthan state. It evokes the royal family that once ruled the region and that, in 1727, founded what is now called the Old City, or “Pink City” for its trademark building color. At the center of its stately street grid (notable in India) stands the opulent, colonnaded City Palace complex. With gardens, courtyards and museums, part of it is still a royal residence.',
-            'places':[
+            'places': [
+               {
+                  'name':'AMBER FORT',
+                  'description':'Amer Fort is built in 16th century by Raja Man singh. Actually before 16th century Amer was known as Dhundar and ruled by Kachhwahas. Before 16th century Amer was the capital of Rajasthan. In 16th century capital of Rajasthan is moved from Amer to Jaipur and Raja Man singh has built a fort which became famous as Amer Fort. Later on Raja Jai Singh has renovated this Amer Fort. Amer Fort is also known as Amer Palace. The Amber Fort (pronounced Amer Fort) was built at the very end of the 16th century by the Maharaja Man Singh and boasts two separate palaces – the ‘Summer Palace’ and the adjacent ‘Sheesh Mahal’ or ‘Winter Palace’. Expect a ten-minute climb to reach to fortress itself, although jeep rides are available for a small charge.',
+                  'images':[
+                     {
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
+                     },
+                     {
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
+                     },
+                     {
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
+                     }
+                  ],
+                  'coordinates':{
+                     'lon':75.8513,
+                     'lat':26.9855
+                  }
+               },
                {
                   'name':'Hawa Mahal',
-                  'description':'asdsdsa',
+                  'description': 'The outstanding Hawa Mahal was built by Sawai Pratap Singh who was the Kachhwaha Rajput ruler in 1799. He was the grandson of Maharaja Sawai Jai Singh, the founder of Jaipur. Sawai Pratap Singh built this beautiful palace as a continuation of the stunning City Palace. Sawai Pratap Singh was really devoted to Lord Krishna which is visible in this creation too as Hawa Mahal looks a lot like the crown of Lord Krishna. Lal Chand Usta designed this beautiful palace. The key attraction of the palace is its 953 windows or ‘Jharokhas’. These windows are specially decorated with twisted designs. Through these windows, cool wind enter in the palace and makes the inner environment very cool and pleasant. The entrance of the palace is a door which opens up to a special courtyard which is surrounded by several two-storey building on three sides. There are five storeys of the palace among which top three have the thickness of a single room while the bottom two have several courtyards. Hawa Mahal is really a stunning historic place so don’t forget to add this place in your list of must visiting places of Jaipur and Rajasthan.',
                   'images':[
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      }
                   ],
                   'coordinates':{
-                     'lon':145.77,
-                     'lat':-16.92
+                     'lon':75.8267,
+                     'lat':26.9239
                   }
                },
                {
-'name':'Hawa Mahal',
-                  'description':'asdsdsa',
+                 'name':'NAHARGARH FORT',
+                  'description':'Built by Jai Singh II, Nahargarh Fort was originally named Sudarshangarh, and was later renamed as Nahargarh or the Abode of Tigers. Nahargarh Fort along with Amer and Jaigarh forts used to form an important defence ring for the city. Located on one of the oldest hills of Aravalli, this fort offers breath-taking views of the Pink City. There are many buildings and structures within Nahagrah fort. There is a temple inside the fort, dedicated to the Rathore prince, Nahar Singh Bhomia. Another attraction in the fort is the Madhavendra Bhawan built by Sawai Madho Singh and Diwan-I-Aam, an open air enclosure where the king met the common men and listened to their problems and complaints.',
                   'images':[
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      }
                   ],
                   'coordinates':{
-                     'lon':145.77,
-                     'lat':-16.92
+                     'lon':75.8155,
+                     'lat':26.9373
                   }
                },
                {
-'name':'Hawa Mahal',
-                  'description':'asdsdsa',
+                 'name':'JAL MAHAL',
+                  'description':'The beautiful Jal Mahal is located in the heart of Man Sagar Lake. The area on which the lake and the palace stand used to be the natural water logging site. The Maharaja of Amer then decided to construct a dam to prevent the famine hit areas by securing water for them through the construction of this lake. The construction of the Jal Mahal is, however, credited to Maharaja Madho Singh in 1750. The five-storey building is built with red sandstone to give it provide it a contrast from the deep blue water of the lake. The palace is submerged in the water except for the fifth floor when the lake is flowing at its peak. Additionally, a lush garden is constructed on the terrace of the palace. The palace stands now for more than 250 years without any problems of water seepage.',
                   'images':[
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      }
                   ],
                   'coordinates':{
-                     'lon':145.77,
-                     'lat':-16.92
+                     'lon':75.8462,
+                     'lat':26.9535
                   }
                }
             ]
@@ -71,60 +90,60 @@ const Data = [
             'description': 'Delhi, India’s capital territory, is a massive metropolitan area in the country’s north. In Old Delhi, a neighborhood dating to the 1600s, stands the imposing Mughal-era Red Fort, a symbol of India, and the sprawling Jama Masjid mosque, whose courtyard accommodates 25,000 people. Nearby is Chandni Chowk, a vibrant bazaar filled with food carts, sweets shops and spice stalls',
             'places':[
                {
-                  'name':'Hawa Mahal',
-                  'description':'asdsdsa',
+                  'name':'Qutub Minar',
+                  'description':'This 73-meter high tower was built by Qutub-ud-Din Aibak in the year 1193. Built after the defeat of Delhi’s last Hindu ruler, the Qutub Minar was constructed to celebrate the Muslim supremacy in Delhi. It is the highest tower in India, with five levels and projecting balconies. The first three levels are made up of red sandstone and the last two of marble and sandstone. The Qutub Minar has three different types of architectural styles. The construction of the minar was started by Aibak (who only made the basement). Later, Iltutmish added on three stories and then it was completed by Firoz Shah Tuglak, who constructed the last two stories. Quwwat-us-Islam Mosque, the first mosque ever to be built in India, is situated here.',
                   'images':[
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      }
                   ],
                   'coordinates':{
-                     'lon':145.77,
-                     'lat':-16.92
+                     'lon':77.1855,
+                     'lat':28.5245
                   }
                },
                {
-'name':'Hawa Mahal',
-                  'description':'asdsdsa',
+                 'name':'Humayun’s Tomb',
+                  'description':'A UNESCO World Heritage Site, Humayun’s Tomb is a stunning piece of Persian architecture built in the Mughal era. It was commissioned in 1526, nine years after Humayun’s death, by his widow Hamida Banu Begum. This beautiful monument is made of red sandstone. The tomb is in the centre of Charbagh-style of gardens with pools that are connected to canals. It has two entrances: a southern side and a western side. The high central arch and the octagonal shape of the structure are important aesthetics of Mughal architectures.',
                   'images':[
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      }
                   ],
                   'coordinates':{
-                     'lon':145.77,
-                     'lat':-16.92
+                     'lon':77.2507,
+                     'lat':28.5933
                   }
                },
                {
-'name':'Hawa Mahal',
-                  'description':'asdsdsa',
+                 'name':'Red Fort',
+                  'description':'This enormous red sandstone fort is synonymous with Delhi and is a testimony of the glory of the Mughal Empire. Built in 1638 by Shah Jahan, it took around ten years to be completed. A UNESCO World Heritage Site, the Red Fort is octagonal in shape with walls adorned with flowers and calligraphy, typically in the style of beautiful Mughal era architecture.',
                   'images':[
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      }
                   ],
                   'coordinates':{
-                     'lon':145.77,
-                     'lat':-16.92
+                     'lon':77.2410,
+                     'lat':28.6562
                   }
                }
             ]
@@ -140,13 +159,13 @@ const Data = [
                   'description':'asdsdsa',
                   'images':[
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      }
                   ],
                   'coordinates':{
@@ -155,17 +174,17 @@ const Data = [
                   }
                },
                {
-'name':'Hawa Mahal',
+'                 name':'Hawa Mahal',
                   'description':'asdsdsa',
                   'images':[
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      }
                   ],
                   'coordinates':{
@@ -174,17 +193,17 @@ const Data = [
                   }
                },
                {
-'name':'Hawa Mahal',
+                  'name':'Hawa Mahal',
                   'description':'asdsdsa',
                   'images':[
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      },
                      {
-                        'url':''
+                        'url':'https://www.tourmyindia.com/images/hawa-mahal-fort-jaipur3.jpg'
                      }
                   ],
                   'coordinates':{

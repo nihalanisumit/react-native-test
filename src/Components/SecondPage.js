@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
-import { Card, CardSection, BackgroundImage } from './common';
+import { View, Text, ScrollView, SafeAreaView } from 'react-native';
+import Swiper from 'react-native-swiper';
+import MapView from 'react-native-maps';
 import Places from './Places';
-// import MapView from 'react-native-maps';
 
 class SecondPage extends React.Component {
 
@@ -10,13 +10,13 @@ class SecondPage extends React.Component {
     const city = navigation.getParam('data', []);
       return {
         title: city.name,
-    headerStyle: {
-      backgroundColor: '#f4511e',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    }
+        headerStyle: {
+          backgroundColor: '#f4511e',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        }
       };
     };
 
@@ -24,23 +24,51 @@ class SecondPage extends React.Component {
   render() {
     const { navigation } = this.props;
     const city = navigation.getParam('data', []);
+    const currentLatitude = navigation.getParam('currentLat', 0);
+    const currentLongitude = navigation.getParam('currentLong', 0);
+    const cityLatitude = navigation.getParam('cityLat', 0);
+    const cityLongitude = navigation.getParam('cityLong', 0);
     const { name, url, description } = city;
     const {
       upperSectionStyle,
       lowerSectionStyle,
       CityNameStyle
     } = styles;
-    return (
-      <View>
-        <View style={upperSectionStyle} >
-            <Text> asdas </Text>
-        </View>
 
-        <ScrollView style={lowerSectionStyle}>
-          <Places city={city} />
-        </ScrollView>
-      </View>
+
+    return (
+      <SafeAreaView style={{flex: 1}}>
+        <View>
+          <View style={upperSectionStyle} >
+          <MapView style={styles.map} initialRegion={{
+           latitude:cityLatitude,
+           longitude:cityLongitude,
+           latitudeDelta: 1,
+           longitudeDelta: 1
+          }}>
+
+
+          </MapView>
+          </View>
+          <View style={styles.lowerSectionStyle}>
+            <Swiper>
+              { this.renderPlaces() }
+            </Swiper>
+          </View>
+
+        </View>
+      </SafeAreaView>
     );
+  }
+
+  renderPlaces = () => {
+    const city = this.props.navigation.getParam('data', []);
+    const currentLatitude = this.props.navigation.getParam('currentLat', 0);
+    const currentLongitude = this.props.navigation.getParam('currentLong', 0);
+    return city.places.map(place =>
+        <Places key={place.name} placeDetails={place} currentLatitude ={currentLatitude} currentLongitude={currentLongitude}/>
+    );
+
   }
 }
 
@@ -50,7 +78,10 @@ const styles = {
     backgroundColor: '#000'
   },
   lowerSectionStyle: {
-    height: '70%'
+    height: '70%',
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 10
   },
   CityNameStyle: {
     fontSize: 22,
