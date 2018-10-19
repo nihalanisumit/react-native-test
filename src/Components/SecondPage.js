@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { Card, CardSection, BackgroundImage } from './common';
-import MapView from 'react-native-maps';
+import Places from './Places';
+// import MapView from 'react-native-maps';
 
 class SecondPage extends React.Component {
 
@@ -32,18 +33,11 @@ class SecondPage extends React.Component {
     return (
       <View>
         <View style={upperSectionStyle} >
-          <MapView
-          initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
-          />
+            <Text> asdas </Text>
         </View>
 
         <ScrollView style={lowerSectionStyle}>
-          <Text>{ description }</Text>
+          <Places city={city} />
         </ScrollView>
       </View>
     );
