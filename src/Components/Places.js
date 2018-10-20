@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, ScrollView } from 'react-native';
-import { Card, CardSection, Button } from './common';
+import { Card, CardSection, Button, BackgroundImage } from './common';
 
 const Places = (props) => {
   const { placeDetails, currentLatitude, currentLongitude } = props;
@@ -30,11 +30,23 @@ const Places = (props) => {
   );
 };
 
+// const renderImages = (images) => {
+//   return images.map(image =>
+//     <Image style={styles.imageStyle} source={{ uri: image.url }} key={images.url} />
+//   );
+// }
 const renderImages = (images) => {
   return images.map(image =>
-    <Image style={styles.imageStyle} source={{ uri: image.url }} key={images.url} />
+    <View style={styles.imageStyle} key={images.url}>
+      <BackgroundImage
+       resizeMode="cover"
+       opacity={1.0}
+       source={image.url}
+      />
+    </View>
   );
 }
+
 
 const calculateDistance = (lat1, lon1, lat2, lon2) => {
   console.log('current lat = ' + lat1 + ' current long =' + lon1 + 'city lat = ' + lat2 + ' city long =' + lon2);

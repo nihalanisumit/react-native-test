@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, SafeAreaView } from 'react-native';
+import { View, Text, Button, SafeAreaView } from 'react-native';
 import Swiper from 'react-native-swiper';
 import MapView from 'react-native-maps';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import Places from './Places';
 
 class SecondPage extends React.Component {
 
   static navigationOptions = ({ navigation }) => {
     const city = navigation.getParam('data', []);
+    const iconColor = navigation.getParam('iconColor', 'white');
       return {
         title: city.name,
         headerStyle: {
@@ -16,7 +18,12 @@ class SecondPage extends React.Component {
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold',
-        }
+        },
+        headerRight: (
+          <View style={{ paddingRight: 5}}>
+            <Icon name="favorite"  color={iconColor}  size={30} />
+          </View>
+        )
       };
     };
 
@@ -37,18 +44,20 @@ class SecondPage extends React.Component {
 
 
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
         <View>
           <View style={upperSectionStyle} >
-          <MapView style={styles.map} initialRegion={{
-           latitude:cityLatitude,
-           longitude:cityLongitude,
-           latitudeDelta: 1,
-           longitudeDelta: 1
-          }}>
-
-
-          </MapView>
+            <MapView style={styles.map} initialRegion={{
+             latitude:cityLatitude,
+             longitude:cityLongitude,
+             latitudeDelta: 1,
+             longitudeDelta: 1
+            }}
+            >
+            {this.cityLatitude !== 0 && !!this.cityLongitude !== 0 && <MapView.Marker
+              coordinate={{ 'latitude':this.cityLatitude, 'longitude':this.cityLongitude}}
+              title={city.name} />}
+            </MapView>
           </View>
           <View style={styles.lowerSectionStyle}>
             <Swiper>
@@ -76,6 +85,13 @@ const styles = {
   upperSectionStyle: {
     height: '30%',
     backgroundColor: '#000'
+  },
+  map: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   lowerSectionStyle: {
     height: '70%',

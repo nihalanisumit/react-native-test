@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Card, CardSection, BackgroundImage } from './common';
 
 class CityCardView extends React.Component {
@@ -16,7 +17,8 @@ class CityCardView extends React.Component {
       currentLat: null,
       currentLong: null,
       error: null,
-      locationError: null
+      locationError: null,
+      iconColor: 'white'
     };
 
     this.cityHolder = [];
@@ -85,7 +87,8 @@ class CityCardView extends React.Component {
         currentLat: this.state.currentLat,
         currentLong: this.state.currentLong,
         cityLat: this.state.lat,
-        cityLong: this.state.long
+        cityLong: this.state.long,
+        iconColor: this.state.iconColor
        })} >
         <CardSection>
           <View style={upperSectionStyle} >
@@ -94,6 +97,9 @@ class CityCardView extends React.Component {
                  opacity={0.5}
                  source={url}
                 />
+                <View style={{alignSelf: 'flex-end'}}>
+                  {this.renderFavouriteButton()}
+                </View>
                 <View style={upperSectionLowerViewStyle}>
                   <View style={{alignSelf: 'flex-end', padding: 3}}>
                     <Text style={CityNameStyle}> { name.toUpperCase() } </Text>
@@ -115,6 +121,23 @@ class CityCardView extends React.Component {
       </Card>
     );
   }
+
+  renderFavouriteButton = () => {
+    return (
+        <TouchableOpacity onPress={() => this.changeIconColor()}>
+          <Icon name="favorite"  color={this.state.iconColor}  size={30} />
+        </TouchableOpacity>
+    );
+  };
+
+  changeIconColor = () => {
+    if (this.state.iconColor === 'red') {
+      this.setState({ iconColor: 'white' });
+    }
+    if (this.state.iconColor === 'white') {
+      this.setState({ iconColor: 'red' });
+    }
+  };
 
   renderWeatherDetails = () => {
     if (this.state.loading) {
@@ -177,7 +200,7 @@ const styles = {
     height: 150,
     width: '100%',
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     backgroundColor: '#000'
   },
   upperSectionLowerViewStyle:{
