@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, ActivityIndicator } from 'react-native';
 
 class BackgroundImage extends React.Component {
-
+//sample
   constructor(props) {
     super(props);
 
