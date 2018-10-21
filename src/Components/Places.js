@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, Image, ScrollView } from 'react-native';
-import { Card, CardSection, Button, BackgroundImage } from './common';
+import { View, Text, ScrollView, Platform, Linking } from 'react-native';
+import { Card, Button, BackgroundImage } from './common';
 
 const Places = (props) => {
   const { placeDetails, currentLatitude, currentLongitude } = props;
@@ -20,8 +20,8 @@ const Places = (props) => {
           </ScrollView>
         </View>
         <View style={styles.buttonContainerStyle}>
-          <Button buttonText='Directions' iconURL='./arrow-point-to-right.png' />
-          <Button buttonText='Book Uber' iconURL='./arrow-point-to-right.png' />
+          <Button buttonText='Directions' iconURL='./commom/direction.png' onPress={ () => openDirections(placeDetails.name) }/>
+          <Button buttonText='Book Uber' iconURL='./commom/taxi.png' onPress={() => bookUber(placeDetails.name) } />
         </View>
         <View style={styles.imageContainerStyle}>
           { renderImages(placeDetails.images) }
@@ -30,11 +30,6 @@ const Places = (props) => {
   );
 };
 
-// const renderImages = (images) => {
-//   return images.map(image =>
-//     <Image style={styles.imageStyle} source={{ uri: image.url }} key={images.url} />
-//   );
-// }
 const renderImages = (images) => {
   return images.map(image =>
     <View style={styles.imageStyle} key={images.url}>
@@ -45,7 +40,7 @@ const renderImages = (images) => {
       />
     </View>
   );
-}
+};
 
 
 const calculateDistance = (lat1, lon1, lat2, lon2) => {
@@ -63,6 +58,25 @@ const calculateDistance = (lat1, lon1, lat2, lon2) => {
   dist = dist * 60 * 1.1515
   dist = dist * 1.609344
   return Math.round(dist)
+};
+
+const openDirections = (labelText) => {
+  const scheme = Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=' });
+  const latLng = `${this.lat},${this.lon}`;
+  const label = labelText;
+  const url = Platform.select({
+    ios: `${scheme}${label}@${latLng}`,
+    android: `${scheme}${latLng}(${label})`
+  });
+Linking.openURL(url);
+};
+
+
+const bookUber = (dropText) => {
+  console.log('book uber button pressed');
+
+  const url = 'https://m.uber.com/ul/?client_id=L6lwCHQCrv5ecZx51R7APYeN5utUYvb&action=setPickup&pickup[latitude]=${this.currentLatitude}&pickup[longitude]=${this.currentLongitude}&pickup[nickname]=my_location&dropoff[latitude]=${this.lat}&dropoff[longitude]=${this.lon}&dropoff[nickname]=${dropText}&product_id=a1111c8c-c720-46c3-8534-2fcdd730040d';
+  Linking.openURL(url);
 };
 
 const styles = {

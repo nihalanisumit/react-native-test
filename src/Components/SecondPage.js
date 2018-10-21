@@ -54,8 +54,8 @@ class SecondPage extends React.Component {
              longitudeDelta: 1
             }}
             >
-            {this.cityLatitude !== 0 && !!this.cityLongitude !== 0 && <MapView.Marker
-              coordinate={{ 'latitude':this.cityLatitude, 'longitude':this.cityLongitude}}
+            {cityLatitude !== 0 && !!cityLongitude !== 0 && <MapView.Marker
+              coordinate={{ latitude: cityLatitude, longitude: cityLongitude}}
               title={city.name} />}
             </MapView>
           </View>

@@ -5,7 +5,7 @@ const Button = (props) => {
   const { buttonStyle, textStyle } = styles;
 
   return (
-    <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5}>
+    <TouchableOpacity style={styles.buttonStyle} activeOpacity={0.5} onPress={props.onPress}>
 
          {getIcon(props.buttonText)}
 
