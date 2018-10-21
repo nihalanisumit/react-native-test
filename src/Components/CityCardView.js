@@ -214,7 +214,9 @@ const styles = {
     justifyContent: 'space-between'
   },
   lowerSectionStyle: {
-    height: 100
+    height: 100,
+    marginLeft: 5,
+    marginRight: 5
   },
   CityNameStyle: {
     fontSize: 22,
