@@ -24,12 +24,15 @@ class CityCardView extends React.Component {
     this.cityHolder = [];
     this.navigation = props.navigation;
     this.city = props.city
+
+
   }
 
   componentDidMount() {
     this.makeRemoteRequest();
     this.makeGeoLocationRequest();
   }
+
 
   makeRemoteRequest = () => {
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${this.city.name}&appid=86410776c14978582bf784cd529c7a48`;
@@ -70,16 +73,17 @@ class CityCardView extends React.Component {
 
 
   render() {
-    const { name, url, description } = this.props.city;
-
+    const { name, url, description, id } = this.props.city;
     const {
       upperSectionStyle,
       upperSectionLowerViewStyle,
       lowerSectionStyle,
       CityNameStyle,
       rightViewStyle,
-      textStyle
+      textStyle,
+      descriptionTextStyle
     } = styles;
+
     return (
       <Card>
       <TouchableOpacity onPress={() => this.navigation.navigate('DetailsPage', {
@@ -115,7 +119,7 @@ class CityCardView extends React.Component {
 
         <CardSection>
           <ScrollView style={lowerSectionStyle}>
-            <Text>{ description }</Text>
+            <Text style={descriptionTextStyle}>{ description }</Text>
           </ScrollView>
         </CardSection>
       </Card>
@@ -125,10 +129,12 @@ class CityCardView extends React.Component {
   renderFavouriteButton = () => {
     return (
         <TouchableOpacity onPress={() => this.changeIconColor()}>
-          <Icon name="favorite"  color={this.state.iconColor}  size={30} />
+          <Icon name="favorite" color={this.state.iconColor}  size={30} />
         </TouchableOpacity>
     );
   };
+
+
 
   changeIconColor = () => {
     if (this.state.iconColor === 'red') {
@@ -222,6 +228,10 @@ const styles = {
   textStyle : {
     color: '#fff',
     fontSize: 16
+  },
+  descriptionTextStyle:{
+    fontStyle: 'italic',
+    textAlign: 'justify'
   }
 };
 

@@ -33,11 +33,18 @@ class HomePage extends Component {
   }
 
   searchFilterFunction = text => {
-    console.log(this.cityHolder);
     const newData = this.cityHolder.filter(item => {
-      const itemData = `${item.name.toUpperCase()}`;
+      const cityName = `${item.name.toUpperCase()}`;
       const textData = text.toUpperCase();
-      return itemData.indexOf(textData) > -1;
+      const placesData = item.places
+      let placeExistInTheCity = false
+      for (const place of placesData) {
+        const placeName = place.name.toUpperCase();
+        if (placeName.indexOf(textData) > -1){
+          placeExistInTheCity = true
+        }
+      }
+      return (cityName.indexOf(textData) > -1 || placeExistInTheCity)
     });
     this.setState({
       data: newData,
